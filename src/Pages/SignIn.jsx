@@ -1,7 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import BackImg from './FRANKIE2_desktop (1).webp';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import BackImg from "./FRANKIE2_desktop (1).webp";
+import { Link } from "react-router-dom";
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
   height: 100vh;
@@ -36,12 +37,14 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1;
+  ${mobile({ height: "55%", width: "60%" })}
 `;
 
 const Title = styled.h1`
   margin: 10px 0;
   font-size: 30px;
   font-weight: lighter;
+  ${mobile({ fontSize: "24px" })}
 `;
 
 const Input = styled.input`
@@ -51,7 +54,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 65%;
+  min-width: 65%;
   border: none;
   margin: 10px 0;
   padding: 10px;
@@ -65,7 +68,8 @@ const StyledLink = styled(Link)`
   margin: 5px;
   color: inherit;
   text-decoration: none;
-`
+  ${mobile({ fontSize: "15px" })}
+`;
 
 const SignIn = () => {
   return (
@@ -73,15 +77,14 @@ const SignIn = () => {
       <Image src={BackImg} />
       <Wrapper>
         <Title>SIGN IN</Title>
-          <Input placeholder="Email" />
-          <Input placeholder="password" />
-          <Button>Sign In</Button>
-          <StyledLink to="/Password">Forgot Password ?</StyledLink>
-          <StyledLink to="/SignUp">Create an account</StyledLink>
+        <Input placeholder="Email" />
+        <Input placeholder="password" />
+        <Button>Sign In</Button>
+        <StyledLink to="/Password">Forgot Password ?</StyledLink>
+        <StyledLink to="/SignUp">Create an account</StyledLink>
       </Wrapper>
     </Container>
   );
 };
 
 export default SignIn;
-

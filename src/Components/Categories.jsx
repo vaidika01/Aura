@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { categories } from "../data";
 import CategoryItem from "../Components/CategoryItem";
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
   padding: 20px;
+  ${mobile({ padding: "0px", flexDirection: "coloumn" })}
 `;
 
 const Heading = styled.h2`
@@ -11,8 +13,8 @@ const Heading = styled.h2`
   font-size: 30px;
   text-align: center;
   font-weight: lighter;
-
-  &:hover{
+  ${mobile({ fontSize: "25px" })}
+  &:hover {
     text-decoration-line: underline;
   }
 `;
@@ -29,7 +31,6 @@ const GridContainer = styled.div`
 
 const Categories = () => {
   return (
-   
     <Container>
       <Heading>SHOP BY CATEGORY</Heading>
       <GridContainer>

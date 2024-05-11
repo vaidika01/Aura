@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BsCart2, BsSuitHeart } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -30,7 +30,7 @@ const Container = styled.div`
   background-color: #fbf9f7;
   position: relative;
 
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `;
@@ -61,16 +61,20 @@ const Product = ({ item }) => {
     <Container>
       <Image src={item.img} />
       <Info>
-        <Icon>
-          <BsCart2 />
-        </Icon>
-        <Link to="/ProductPage">
+        <Link to="/Cart">
           <Icon>
-            <CiSearch/>
+            <BsCart2 />
           </Icon>
         </Link>
+
+        <Link to={"/ProductPage"} state={item}>
+          <Icon>
+            <CiSearch />
+          </Icon>
+        </Link>
+
         <Icon>
-          <BsSuitHeart/>
+          <BsSuitHeart />
         </Icon>
       </Info>
     </Container>

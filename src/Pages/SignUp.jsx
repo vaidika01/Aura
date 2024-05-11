@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import BackImg from './FRANKIE2_desktop (1).webp';
+import BackImg from "./FRANKIE2_desktop (1).webp";
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
   height: 100vh;
@@ -20,7 +21,7 @@ const Image = styled.img`
 `;
 
 const Wrapper = styled.div`
-  height: 55%;
+  height: 50%;
   width: 35%;
   padding: 20px;
   background-color: white;
@@ -34,12 +35,14 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1;
+  ${mobile({ height: "55%", width: "60%" })}
 `;
 
 const Title = styled.h1`
   margin: 10px 0;
   font-size: 25px;
   font-weight: lighter;
+  ${mobile({ fontSize: "20px" })}
 `;
 
 const Input = styled.input`
@@ -49,7 +52,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 75%;
+  min-width: 75%;
   border: none;
   margin: 10px 0;
   padding: 10px;
@@ -57,27 +60,30 @@ const Button = styled.button`
   background-color: black;
   color: white;
   cursor: pointer;
+  ${mobile({ fontSize: "10px", minWidth: "40%" })}
 `;
 
 const Agreement = styled.div`
   padding: 10px 10px;
   font-size: 15px;
   font-weight: lighter;
+  text-align: center;
+  ${mobile({ fontSize: "10px" })}
 `;
 
 const SignUp = () => {
   return (
     <Container>
-        <Image src={BackImg} />
-        <Wrapper>
+      <Image src={BackImg} />
+      <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-          <Input placeholder="Email" />
-          <Input placeholder="Password" />
-          <Input placeholder="Confirm Password" />
-          <Agreement>
-            By signing up for an account you accept our Terms and Privacy Policy.
-          </Agreement>
-          <Button>CREATE</Button>
+        <Input placeholder="Email" />
+        <Input placeholder="Password" />
+        <Input placeholder="Confirm Password" />
+        <Agreement>
+          By signing up for an account you accept our Terms and Privacy Policy.
+        </Agreement>
+        <Button>CREATE</Button>
       </Wrapper>
     </Container>
   );

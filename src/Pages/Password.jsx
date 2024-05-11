@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import BackImg from './FRANKIE2_desktop (1).webp';
+import React from "react";
+import styled from "styled-components";
+import BackImg from "./FRANKIE2_desktop (1).webp";
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
   height: 100vh;
@@ -35,12 +36,14 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1;
+  ${mobile({ height: "55%", width: "60%" })}
 `;
 
 const Title = styled.h1`
   margin: 10px 0;
   font-size: 20px;
   font-weight: lighter;
+  ${mobile({ fontSize: "17px" })}
 `;
 
 const Input = styled.input`
@@ -50,7 +53,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 65%;
+  min-width: 65%;
   border: none;
   margin: 10px 0;
   padding: 10px;
@@ -58,6 +61,7 @@ const Button = styled.button`
   background-color: black;
   color: white;
   cursor: pointer;
+  ${mobile({ fontSize: "10px", minWidth: "40%" })}
 `;
 
 const Reset = styled.div`
@@ -65,21 +69,25 @@ const Reset = styled.div`
   padding: 10px 10px;
   font-size: 15px;
   font-weight: lighter;
-`
+  text-align: center;
+  ${mobile({ fontSize: "10px" })};
+`;
 
 const Password = () => {
   return (
     <Container>
       <Image src={BackImg} />
       <Wrapper>
-         <Title>FORGOTTEN PASSWORD</Title>
-          <Input placeholder="Email" />
-          <Reset>Enter the email address associated with your Ref account to receive an email link to reset your password.</Reset>
-          <Button>Reset your Password</Button>
+        <Title>FORGOTTEN PASSWORD</Title>
+        <Input placeholder="Email" />
+        <Reset>
+          Enter the email address associated with your Ref account to receive an
+          email link to reset your password.
+        </Reset>
+        <Button>Reset your Password</Button>
       </Wrapper>
     </Container>
   );
 };
 
 export default Password;
-

@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { popularProducts } from "../data";
 import Product from "./Product";
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
-    padding: 20px;
-    margin-top: 30px;
+  padding: 20px;
+  margin-top: 30px;
 `;
 
 const Heading = styled.h2`
@@ -13,8 +14,8 @@ const Heading = styled.h2`
   text-align: center;
   font-weight: lighter;
   text-transform: uppercase;
-
-  &:hover{
+  ${mobile({ fontSize: "20px" })}
+  &:hover {
     text-decoration-line: underline;
   }
 `;
@@ -30,9 +31,10 @@ const Products = () => {
   return (
     <Container>
       <Heading> Discover Our Most Loved Clothing Pieces</Heading>
-      <GridContainer>{popularProducts.map((item) => (
-        <Product item={item} key={item.id} />
-      ))}
+      <GridContainer>
+        {popularProducts.map((item) => (
+          <Product item={item} key={item.id} />
+        ))}
       </GridContainer>
     </Container>
   );

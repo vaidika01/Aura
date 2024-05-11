@@ -3,8 +3,9 @@ import Announcement from "../Components/Announcement";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Newsletter from "../Components/Newsletter";
-import Top from '../Components/Product_img/1313373.2.jpg'
-import { AiOutlineMinus,AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { mobile } from "../Responsive";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
   height: 100vh;
@@ -14,6 +15,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -22,13 +24,15 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 90vh;
+  height: 70vh;
   object-fit: cover;
+  ${mobile({ height: "30vh" })}
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Title = styled.h1`
@@ -111,34 +115,33 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 500;
 
-  &:hover{
-      background-color: black;
-      color: white;
+  &:hover {
+    background-color: black;
+    color: white;
   }
 `;
 
-const Product = () => {
+const Product = (props) => {
+  const { state } = useLocation();
+  const { img, title, des, price } = state;
+
   return (
     <Container>
       <Navbar />
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src={Top}/>
+          <Image src={img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Kimberly Linen Top</Title>
-          <Desc>
-          Non-adjustable straps.
-          Center front button, cross-back straps, and sweetheart neckline.
-          This is a lightweight linen fabric - 100% linen. Machine wash cold, do not bleach, tumble dry low, do not iron, do not dry clean.
-          </Desc>
-          <Price>₹1,199</Price>
+          <Title>{title}</Title>
+          <Desc>{des}</Desc>
+          <Price>{price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
               <FilterColor color="black" />
-              <FilterColor color="darkblue"/>
+              <FilterColor color="darkblue" />
               <FilterColor color="lightgrey" />
             </Filter>
             <Filter>
@@ -154,9 +157,9 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-               <AiOutlineMinus/>
+              <AiOutlineMinus />
               <Amount>1</Amount>
-                <AiOutlinePlus/>
+              <AiOutlinePlus />
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>
