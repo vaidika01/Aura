@@ -5,6 +5,15 @@ import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { BsCart2, BsSuitHeart } from "react-icons/bs";
 import { SlArrowDown } from "react-icons/sl";
+import { useCart } from "../CartContext";
+
+const StyledNavbar = styled.nav`
+  background-color: #fbf9f7;
+  color: black;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+`;
 
 const Container = styled.div`
   height: 60px;
@@ -72,6 +81,7 @@ const Input = styled.input`
 
 const Logo = styled.h1`
   font-weight: lighter;
+  font-size: 36px;
   ${mobile({ fontSize: "24px" })}
   &:hover {
     text-decoration-line: underline;
@@ -104,9 +114,29 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
+const CartNumber = styled.div`
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  position: relative;
+  bottom: -7px;
+  right: 7px;
+  text-align: center;
+  font-size: 12px;
+  background-color: rgb(255, 119, 74);
+  color: white;
+`;
+
 const Navbar = () => {
+  const { cartItems } = useCart();
+
+  const cartTotalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
-    <div>
+    <StyledNavbar>
       <Container>
         <Wrapper>
           <Left>
@@ -135,6 +165,7 @@ const Navbar = () => {
             </MenuItem>
             <MenuItem>
               <BsCart2 />
+              <CartNumber>{cartTotalItems}</CartNumber>
               <StyledLink to="/Cart">
                 <Cart>CART</Cart>
               </StyledLink>
@@ -142,7 +173,7 @@ const Navbar = () => {
           </Right>
         </Wrapper>
       </Container>
-    </div>
+    </StyledNavbar>
   );
 };
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BsCart2, BsSuitHeart } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useCart } from "../CartContext";
 
 const Info = styled.div`
   opacity: 0;
@@ -56,22 +57,33 @@ const Icon = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+`;
+
 const Product = ({ item }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(item);
+  };
+
   return (
     <Container>
       <Image src={item.img} />
       <Info>
-        <Link to="/Cart">
-          <Icon>
+        <StyledLink to="/Cart">
+          <Icon onClick={handleAddToCart}>
             <BsCart2 />
           </Icon>
-        </Link>
+        </StyledLink>
 
-        <Link to={"/ProductPage"} state={item}>
+        <StyledLink to={"/ProductPage"} state={item}>
           <Icon>
             <CiSearch />
           </Icon>
-        </Link>
+        </StyledLink>
 
         <Icon>
           <BsSuitHeart />

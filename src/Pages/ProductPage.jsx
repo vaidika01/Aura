@@ -3,9 +3,10 @@ import Announcement from "../Components/Announcement";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Newsletter from "../Components/Newsletter";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { mobile } from "../Responsive";
 import { useLocation } from "react-router-dom";
+import { useCart } from "../CartContext";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 100vh;
@@ -72,6 +73,7 @@ const FilterColor = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  border: 1px solid black;
   background-color: ${(props) => props.color};
   margin: 0px 5px;
   cursor: pointer;
@@ -91,23 +93,6 @@ const AddContainer = styled.div`
   justify-content: space-between;
 `;
 
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-`;
-
 const Button = styled.button`
   padding: 15px;
   border: 2px solid black;
@@ -121,9 +106,19 @@ const Button = styled.button`
   }
 `;
 
-const Product = (props) => {
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+`;
+
+const Product = () => {
   const { state } = useLocation();
-  const { img, title, des, price } = state;
+  const { img, title, des, price, color } = state;
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(state);
+  };
 
   return (
     <Container>
@@ -136,11 +131,11 @@ const Product = (props) => {
         <InfoContainer>
           <Title>{title}</Title>
           <Desc>{des}</Desc>
-          <Price>{price}</Price>
+          <Price>₹{price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
+              <FilterColor color={color} />
               <FilterColor color="darkblue" />
               <FilterColor color="lightgrey" />
             </Filter>
@@ -156,12 +151,11 @@ const Product = (props) => {
             </Filter>
           </FilterContainer>
           <AddContainer>
-            <AmountContainer>
-              <AiOutlineMinus />
-              <Amount>1</Amount>
-              <AiOutlinePlus />
-            </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button>
+              <StyledLink to="/Cart" onClick={handleAddToCart}>
+                ADD TO CART
+              </StyledLink>
+            </Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
