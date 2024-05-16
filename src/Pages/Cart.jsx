@@ -6,7 +6,7 @@ import Footer from "../Components/Footer";
 import { mobile } from "../Responsive";
 import { useCart } from "../CartContext";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { useFavorites } from "../FavoritesContext";
 
 const Container = styled.div`
   height: 100vh;
@@ -22,27 +22,14 @@ const Wrapper = styled.div`
 const Top = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px;
-`;
-
-const TopButton = styled.button`
-  padding: 10px;
-  cursor: pointer;
-  color: white;
-  background-color: black;
-  border: none;
-  font-size: 12px;
-`;
-
-const StyledLink = styled(Link)`
-  color: inherit;
-  text-decoration: none;
 `;
 
 const TopTexts = styled.div`
   ${mobile({ display: "none" })}
 `;
+
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
@@ -147,6 +134,7 @@ const Button = styled.button`
 
 const Cart = () => {
   const { cartItems, increaseQuantity, decreaseQuantity } = useCart();
+  const { favorites } = useFavorites();
 
   const cartTotalItems = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -162,20 +150,21 @@ const Cart = () => {
   const discount = shippingCost;
   const total = subtotal + shippingCost - discount;
 
+  const favoritesTotalItems = favorites.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <div>
       <Container>
         <Navbar />
         <Announcement />
         <Top>
-          <TopButton type="filled">
-            <StyledLink to="/"> CONTINUE SHOPPING </StyledLink>
-          </TopButton>
           <TopTexts>
             <TopText>Shopping Bag({cartTotalItems})</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>Your Wishlist ( {favoritesTotalItems} )</TopText>
           </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Wrapper>
           <Bottom>

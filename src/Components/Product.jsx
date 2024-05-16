@@ -3,6 +3,7 @@ import { BsCart2, BsSuitHeart } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext";
+import { useFavorites } from "../FavoritesContext";
 
 const Info = styled.div`
   opacity: 0;
@@ -64,9 +65,14 @@ const StyledLink = styled(Link)`
 
 const Product = ({ item }) => {
   const { addToCart } = useCart();
+  const { addToFavorites } = useFavorites();
 
   const handleAddToCart = () => {
     addToCart(item);
+  };
+
+  const handleAddToFavorites = () => {
+    addToFavorites(item);
   };
 
   return (
@@ -85,9 +91,11 @@ const Product = ({ item }) => {
           </Icon>
         </StyledLink>
 
-        <Icon>
-          <BsSuitHeart />
-        </Icon>
+        <StyledLink to="/Favorites">
+          <Icon onClick={handleAddToFavorites}>
+            <BsSuitHeart />
+          </Icon>
+        </StyledLink>
       </Info>
     </Container>
   );

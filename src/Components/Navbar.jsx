@@ -6,6 +6,7 @@ import { CiSearch } from "react-icons/ci";
 import { BsCart2, BsSuitHeart } from "react-icons/bs";
 import { SlArrowDown } from "react-icons/sl";
 import { useCart } from "../CartContext";
+import { useFavorites } from "../FavoritesContext";
 
 const StyledNavbar = styled.nav`
   background-color: #fbf9f7;
@@ -101,11 +102,11 @@ const MenuItem = styled.div`
   }
 `;
 
-const Favorites = styled.div`
+const Cart = styled.div`
   margin-left: 5px;
 `;
 
-const Cart = styled.div`
+const Favorites = styled.div`
   margin-left: 5px;
 `;
 
@@ -129,8 +130,14 @@ const CartNumber = styled.div`
 
 const Navbar = () => {
   const { cartItems } = useCart();
+  const { favorites } = useFavorites();
 
   const cartTotalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const favoritesTotalItems = favorites.reduce(
     (total, item) => total + item.quantity,
     0
   );
@@ -156,12 +163,14 @@ const Navbar = () => {
           </Center>
           <Right>
             <MenuItem>
-              {" "}
               <StyledLink to="/SignIn"> SIGN IN </StyledLink>
             </MenuItem>
             <MenuItem>
               <BsSuitHeart />
-              <Favorites>FAVORITES</Favorites>
+              <CartNumber>{favoritesTotalItems}</CartNumber>
+              <StyledLink to="/Favorites">
+                <Favorites>FAVORITES</Favorites>
+              </StyledLink>
             </MenuItem>
             <MenuItem>
               <BsCart2 />
