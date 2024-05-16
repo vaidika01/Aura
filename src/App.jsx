@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./Pages/Home";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import SignIn from "./Pages/SignIn";
 import ProductList from "./Pages/ProductList";
 import SignUp from "./Pages/SignUp";
@@ -11,9 +11,9 @@ import Favorites from "./Pages/Favorites";
 
 const App = () => {
   return (
-    <Router>
+    <HashRouter>
       <div>
-        <Routes>
+        <Routes basename="/e-commerce">
           <Route path="/" element={<Home />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/ProductList" element={<ProductList />} />
@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/Favorites" element={<Favorites />} />
         </Routes>
       </div>
-    </Router>
+    </HashRouter>
   );
 };
 
