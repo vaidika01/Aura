@@ -12,7 +12,7 @@ import Favorites from "./Pages/Favorites";
 const App = () => {
   return (
     <HashRouter>
-      <div>
+      <div style={{ overflowX: "hidden" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/SignIn" element={<SignIn />} />

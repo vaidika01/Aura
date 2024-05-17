@@ -19,16 +19,15 @@ const StyledNavbar = styled.nav`
 const Container = styled.div`
   height: 60px;
   width: 100vw;
-  ${mobile({ height: "50px" })}
 `;
 
 const Wrapper = styled.div`
-  width: 95%;
+  width: 97%;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${mobile({ padding: "10px 0px" })}
+  ${mobile({ width: "100%", padding: "10px 0px" })}
 `;
 
 const Left = styled.div`
@@ -47,7 +46,7 @@ const Right = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  ${mobile({ flex: "2", justifyContent: "center" })}
+  ${mobile({ justifyContent: "center" })}
 `;
 
 const Country = styled.span`
@@ -73,17 +72,18 @@ const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
   border: 1px solid lightgray;
+  ${mobile({ marginLeft: "10px " })}
 `;
 
 const Input = styled.input`
   border: none;
-  ${mobile({ width: "50px" })}
+  ${mobile({ width: "70px" })}
 `;
 
 const Logo = styled.h1`
-  font-weight: lighter;
-  font-size: 36px;
-  ${mobile({ fontSize: "24px" })}
+  font-weight: bold;
+  font-size: 42px;
+  ${mobile({ fontSize: "30px" })}
   &:hover {
     text-decoration-line: underline;
   }
@@ -102,13 +102,13 @@ const MenuItem = styled.div`
   }
 `;
 
-const Cart = styled.div`
-  margin-left: 5px;
-`;
+// const Cart = styled.div`
+//   margin-left: 5px;
+// `;
 
-const Favorites = styled.div`
-  margin-left: 5px;
-`;
+// const Favorites = styled.div`
+//   margin-left: 5px;
+// `;
 
 const StyledLink = styled(Link)`
   color: inherit;
@@ -166,18 +166,18 @@ const Navbar = () => {
               <StyledLink to="/SignIn"> SIGN IN </StyledLink>
             </MenuItem>
             <MenuItem>
-              <BsSuitHeart />
-              <CartNumber>{favoritesTotalItems}</CartNumber>
               <StyledLink to="/Favorites">
-                <Favorites>FAVORITES</Favorites>
+                <BsSuitHeart />
               </StyledLink>
+              <CartNumber>{favoritesTotalItems}</CartNumber>
+              {/* <Favorites>FAVORITES</Favorites> */}
             </MenuItem>
             <MenuItem>
-              <BsCart2 />
-              <CartNumber>{cartTotalItems}</CartNumber>
               <StyledLink to="/Cart">
-                <Cart>CART</Cart>
+                <BsCart2 />
               </StyledLink>
+              <CartNumber>{cartTotalItems}</CartNumber>
+              {/* <Cart>CART</Cart> */}
             </MenuItem>
           </Right>
         </Wrapper>

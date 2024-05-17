@@ -32,7 +32,7 @@ const Container = styled.div`
   background-color: #fbf9f7;
   position: relative;
 
-  &:hover ${Info} {
+  &:hover ${Info}, &:active ${Info} {
     opacity: 1;
   }
 `;
@@ -52,7 +52,8 @@ const Icon = styled.div`
   justify-content: center;
   margin: 10px;
   transition: all 0.5s ease;
-  &:hover {
+  &:hover,
+  &:active {
     background-color: #e9f5f5;
     transform: scale(1.1);
   }

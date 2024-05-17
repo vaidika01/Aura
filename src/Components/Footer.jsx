@@ -7,19 +7,22 @@ import {
   BsPinterest,
 } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
-import { mobile } from "../Responsive";
+import { mobile, tablet } from "../Responsive";
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
   background-color: #fbf9f7;
   ${mobile({ flexDirection: "column" })}
+  ${tablet({ flexDirection: "row" })}
 `;
 const Left = styled.div`
-  margin-left: 100px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
 `;
 const Logo = styled.h1`
@@ -46,26 +49,29 @@ const SocialIcon = styled.div`
 
 const Center = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
-  ${mobile({ marginLeft: "100px" })}
 `;
 const Title = styled.h3`
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-right: 20px;
 `;
 
 const List = styled.ul`
-  margin: 0;
-  padding: 0;
   list-style: none;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   cursor: pointer;
 `;
 
 const ListItem = styled.li`
-  width: 50%;
+  width: 40%;
   margin-bottom: 10px;
-
   &:hover {
     text-decoration-line: underline;
   }
@@ -73,13 +79,13 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
-  ${mobile({ display: "none" })}
 `;
 const Contact = styled.div`
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   font-size: 25px;
 
@@ -118,9 +124,9 @@ const Footer = () => {
         <List>
           <ListItem>Home</ListItem>
           <ListItem>About</ListItem>
-          <ListItem>Orders & Payments</ListItem>
+          <ListItem>Orders</ListItem>
           <ListItem>Delivery</ListItem>
-          <ListItem>Offers & Vouchers</ListItem>
+          <ListItem>Offers</ListItem>
           <ListItem>FAQs</ListItem>
           <ListItem>Help</ListItem>
           <ListItem>Terms</ListItem>

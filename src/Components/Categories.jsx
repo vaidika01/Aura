@@ -13,16 +13,13 @@ const Heading = styled.h2`
   font-size: 30px;
   text-align: center;
   font-weight: lighter;
-  ${mobile({ fontSize: "25px" })}
+  ${mobile({ display: "none" })}
   &:hover {
     text-decoration-line: underline;
   }
 `;
 
 const GridContainer = styled.div`
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px; */
   display: flex;
   align-items: center;
   justify-content: space-around;
