@@ -1,4 +1,4 @@
-# [Aura: E-Commerce Fashion Website](vaidika01.github.io/e-commerce)
+# [Aura: E-Commerce Fashion Website](https://vaidika01.github.io/e-commerce/)
 
 This project involves the development of the front end for an e-commerce fashion website using React.js.
 
