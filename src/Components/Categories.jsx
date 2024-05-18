@@ -5,7 +5,7 @@ import { mobile } from "../Responsive";
 
 const Container = styled.div`
   padding: 20px;
-  ${mobile({ padding: "0px", flexDirection: "coloumn" })}
+  ${mobile({ padding: "0px", flexDirection: "column" })}
 `;
 
 const Heading = styled.h2`
