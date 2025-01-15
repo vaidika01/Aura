@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# [Aura: E-Commerce Fashion Website](https://vaidika01.github.io/e-commerce/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project involves the development of the front end for an e-commerce fashion website using React.js.
 
-## Available Scripts
+## Features Implemented
 
-In the project directory, you can run:
+- **Multiple Components:** Created various components including an Announcement bar, Navbar, banner, product categories display, image carousel slider, product listings, sign-in and sign-up pages, cart functionality, favorites functionality, and a newsletter subscription feature.
 
-### `npm start`
+- **Intuitive Navigation:** Implemented an intuitive navigation system using React Router. This enables users to seamlessly explore different product categories and pages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Dynamic Product Listing:** Integrated dynamic product listing and product detail pages. This allows for the presentation of product information in a clear and visually appealing manner.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Cart and Favorites Functionality:** Developed functionalities for managing cart items and favouriting products. Users can add items to their cart for purchase and also mark products as favourites for future reference.
 
-### `npm test`
+## Demo Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Here are some screenshots of the application:
 
-### `npm run build`
+### Home Page
+![Home Page](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Home.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Product Categories
+![Product Categories](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Category.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Product Listing
+![Product Listing](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Product.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Product Detail
+![Product Detail](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Product%20Page.png)
 
-### `npm run eject`
+### Sign In
+![Product Detail](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Signin.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Cart
+![Cart](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Cart.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Favorites
+![Favorites](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Favorites.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Footer
+![Product Categories](https://github.com/vaidika01/e-commerce/blob/master/public/Demo/Footer.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+To run the front end of the e-commerce fashion website locally, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository to your local machine:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   git clone https://github.com/vaidika01/e-commerce
+   
+2. Navigate to the project directory:
 
-### Code Splitting
+   ```bash
+   cd e-commerce
+   
+3. Install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   npm install
+   
+4. Start the development server:
 
-### Analyzing the Bundle Size
+   ```bash
+   npm start
+   
+5. Open your browser and visit http://localhost:3000 to view the website.
+ 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
